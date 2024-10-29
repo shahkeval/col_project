@@ -323,7 +323,7 @@ app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });   
 
-
+//const router = express.Router();
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 import User from './model/admin.js'; // Make sure the path is correct
@@ -416,3 +416,4 @@ app.post('/reset-password/:token', async (req, res) => {
         return res.status(400).json({ message: 'Invalid or expired token' });
     }
 });
+//export default Router();
