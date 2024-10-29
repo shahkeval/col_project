@@ -24,7 +24,7 @@ function AllAdmin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8001/allAdmin');
+        const res = await axios.get('https://col-projectback.vercel.app/allAdmin');
         setAllUsers(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -59,17 +59,17 @@ function AllAdmin() {
     }
 
     try {
-      const res = await axios.delete(`http://localhost:8001/deleteAdmin/${user.id}`);
+      const res = await axios.delete(`https://col-projectback.vercel.app/deleteAdmin/${user.id}`);
       console.log('Employee deleted successfully:', res.data);
 
-      const updatedData = await axios.get('http://localhost:8001/allAdmin');
+      const updatedData = await axios.get('https://col-projectback.vercel.app/allAdmin');
       setAllUsers(updatedData.data);
     } catch (error) {
     }
   };
 
   const handleUpdateFormCencle = async (e) => {
-    const updatedData = await axios.get('http://localhost:8001/allAdmin');
+    const updatedData = await axios.get('https://col-projectback.vercel.app/allAdmin');
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({
@@ -83,9 +83,9 @@ function AllAdmin() {
   const handleUpdateFormSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.put(`http://localhost:8001/updateAdmin/${selectedUser.id}`, updateFormData);
+    const res = await axios.put(`https://col-projectback.vercel.app/updateAdmin/${selectedUser.id}`, updateFormData);
     console.log('Employee updated successfully:', res.data);
-    const updatedData = await axios.get('http://localhost:8001/allAdmin');
+    const updatedData = await axios.get('https://col-projectback.vercel.app/allAdmin');
     setAllUsers(updatedData.data);
     setSelectedUser(null);
     setUpdateFormData({

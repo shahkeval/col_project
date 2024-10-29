@@ -23,16 +23,16 @@ function Home() {
     const fetchData = async () => {
       try {
         if (activeTable === 'Employee') {
-          const res1 = await axios.get('http://localhost:8001/allEmps');
+          const res1 = await axios.get('https://col-projectback.vercel.app/allEmps');
           setAllUsers(res1.data);
         } else if (activeTable === 'Admin') {
-          const res2 = await axios.get('http://localhost:8001/allAdmin');
+          const res2 = await axios.get('https://col-projectback.vercel.app/allAdmin');
           setAllAdmin(res2.data);
         } else if (activeTable === 'Salary') {
-          const res3 = await axios.get('http://localhost:8001/allSalary');
+          const res3 = await axios.get('https://col-projectback.vercel.app/allSalary');
           setAllSalary(res3.data);
         } else if (activeTable === 'Leave') {
-          const res4 = await axios.get('http://localhost:8001/allLeave');
+          const res4 = await axios.get('https://col-projectback.vercel.app/allLeave');
           setAllLea(res4.data);
         }
       } catch (error) {

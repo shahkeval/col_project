@@ -25,7 +25,7 @@ function GenSal () {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8001/allEmps');
+        const res = await axios.get('https://col-projectback.vercel.app/allEmps');
         setAllUsers(res.data);
 
         setAllSal(res.data);
@@ -40,7 +40,7 @@ function GenSal () {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8001/allSalary');
+        const res = await axios.get('https://col-projectback.vercel.app/allSalary');
         setAllSal(res.data);
       } catch (error) {
         console.error('Error fetching emps:', error);
@@ -79,10 +79,10 @@ function GenSal () {
     }
 
     try {
-      const res = await axios.delete(`http://localhost:8001/deleteSalary/${user.id}`);
+      const res = await axios.delete(`https://col-projectback.vercel.app/deleteSalary/${user.id}`);
       console.log('Employee deleted successfully:', res.data);
 
-      const updatedData = await axios.get('http://localhost:8001/allSalary');
+      const updatedData = await axios.get('https://col-projectback.vercel.app/allSalary');
       setAllSal(updatedData.data);
     } catch (error) {
     }
@@ -108,7 +108,7 @@ function GenSal () {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8001/Salary', formValues)
+      .post('https://col-projectback.vercel.app/Salary', formValues)
       .then(async(result) => {
         console.log(result);
         setFormValues({
@@ -119,7 +119,7 @@ function GenSal () {
           s_eid:""
         })
         setActiveTable('Table');
-        const res = await axios.get('http://localhost:8001/allSalary');
+        const res = await axios.get('https://col-projectback.vercel.app/allSalary');
         setAllSal(res.data);
       })
       .catch((err) => {
