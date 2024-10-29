@@ -12,7 +12,6 @@ const app = express();
 const port = 8001;
 app.use(cors());
 app.use(express.json());
-app.use(express());
 mongoose.connect('mongodb+srv://keval:kevalshah123%40@cluster0.ckpdmdv.mongodb.net/payroll').
 then(()=> console.log("mongodb database connected successfull..")).catch((err)=>{
   console.error("mongo db error",err);
@@ -324,14 +323,10 @@ app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });   
 
-const router = express.Router();
 
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 import User from './model/admin.js'; // Make sure the path is correct
-
-import dotenv from 'dotenv';
-dotenv.config(); // This loads environment variables from your .env file
 
 app.post('/forgot-password', async (req, res) => {
   console.log("hello forgot");
@@ -387,7 +382,6 @@ app.post('/forgot-password', async (req, res) => {
     
 });
 
-export default router;
 
 app.post('/reset-password/:token', async (req, res) => {
   console.log("hello reset 1");
