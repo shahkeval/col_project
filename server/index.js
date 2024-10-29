@@ -12,11 +12,16 @@ const app = express();
 const port = 8001;
 app.use(cors());
 app.use(express.json());
-
+app.use(express());
 mongoose.connect('mongodb+srv://keval:kevalshah123%40@cluster0.ckpdmdv.mongodb.net/payroll').
 then(()=> console.log("mongodb database connected successfull..")).catch((err)=>{
   console.error("mongo db error",err);
 });
+
+app.get('/', async (req, res) => {
+  res.json("WORKING");
+});
+
 //To get all emp
 app.get('/allEmps', async (req, res) => {
   try {
@@ -26,9 +31,7 @@ app.get('/allEmps', async (req, res) => {
     console.log('Error while insert order', error);
   }
 });
-app.get('/', async (req, res) => {
-  res.json("WORKING");
-});
+
 //To insert emp
 app.post('/Emp',async (req, res) => {
   const existingUser = await UserModelEmp.findOne({ id: req.body.id });
@@ -322,11 +325,11 @@ app.listen(port, () => {
 });   
 
 const router = express.Router();
-import crypto from 'crypto';
+
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 import User from './model/admin.js'; // Make sure the path is correct
-import e from 'express';
+
 import dotenv from 'dotenv';
 dotenv.config(); // This loads environment variables from your .env file
 
