@@ -1,4 +1,4 @@
-/* Overall Admin container styling */
+/* Overall Admin container styling (default for PC screens) */
 .admin {
     display: flex;
     height: 100vh;
@@ -157,181 +157,60 @@ table td button.showhidebtn:hover {
     transform: translateX(-50%);
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
+/* Mobile screen adjustments (max-width: 480px) */
+@media (max-width: 480px) {
     .admin {
         flex-direction: column;
+        padding: 10px;
     }
 
     .nav {
         width: 100%;
         padding: 10px;
         box-shadow: none;
-        transition: none;
     }
 
-    .nav:hover {
-        width: 100%;
-        background: #34495e;
+    .nav a {
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 6px;
     }
 
     .side {
+        padding: 10px;
         margin-top: 20px;
+    }
+
+    .admincontainer {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .admincontainer h2 {
+        font-size: 20px;
+        text-align: center;
     }
 
     table td input {
         font-size: 14px;
     }
-}
 
-@media (max-width: 480px) {
-    .nav a {
+    .showhidebtn {
+        padding: 8px 12px;
         font-size: 14px;
     }
 
     .subbtn {
+        padding: 10px;
         font-size: 14px;
-        padding: 8px;
+        width: 100%;
     }
-}
 
-/* Admin container styling for mobile */
-.admin {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #e3f2fd, #e1bee7);
-    color: #333;
-    min-height: 100vh;
-    padding: 10px;
-}
-
-/* Navigation bar styling for mobile */
-.nav {
-    width: 100%;
-    background: #2c3e50;
-    color: #ecf0f1;
-    padding: 10px;
-    box-shadow: none;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.nav a {
-    color: #ecf0f1;
-    text-decoration: none;
-    padding: 12px;
-    font-size: 14px;
-    margin-bottom: 5px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-weight: 500;
-}
-
-.nav a.active {
-    background: #1abc9c;
-    transform: scale(1.05);
-}
-
-.nav a:hover {
-    background: #16a085;
-    transform: scale(1.03);
-}
-
-/* Side container styling */
-.side {
-    flex: 1;
-    padding: 15px;
-}
-
-/* Admin form container styling for mobile */
-.admincontainer {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.admincontainer h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #2980b9;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-/* Form styling */
-form .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-form .form-group label {
-    font-weight: 500;
-    color: #333;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-form .form-group input[type="text"],
-form .form-group input[type="email"],
-form .form-group input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-}
-
-.showhidebtn {
-    margin-top: 8px;
-    padding: 8px 12px;
-    background: #2980b9;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-size: 14px;
-}
-
-.showhidebtn:hover {
-    background: #3498db;
-}
-
-/* Submit button styling for mobile */
-.subbtn {
-    padding: 10px;
-    border: none;
-    width: 100%;
-    border-radius: 8px;
-    background: linear-gradient(145deg, #3498db, #2980b9);
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.subbtn:hover {
-    background: linear-gradient(145deg, #1abc9c, #16a085);
-    transform: scale(1.03);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Admin face styling */
-.adminface {
-    width: 100px;
-    height: 100px;
-    margin: 20px auto;
-    background: #34495e;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.face, .body {
-    display: none; /* Hide the face graphic on mobile for a simplified view */
+    /* Hide the face graphic on mobile for a simplified view */
+    .adminface,
+    .face,
+    .body {
+        display: none;
+    }
 }
