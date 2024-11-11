@@ -33,7 +33,7 @@ export default function Login() {
 
   const handleLogin = async (role) => {
     try {
-      const response = await axios.post(`https://col-projectback.vercel.app/login/${role}`, formData);
+      const response = await axios.post(`http://localhost:8001/login/${role}`, formData);
       console.log(response.data);
       if (response.data.message === "Employee authentication successful") {
         redirectToHomeEmp(response.data.user.id);
@@ -47,31 +47,11 @@ export default function Login() {
   };
 
   return (
+   <center> <div className='login'>
     <div>
-  
-     
+      <h1>Login</h1>
+    </div>
       <table>
-        <tr>
-          <td>
-          <div  onClick={() => handleLogin('admin')}>
-        
-        
-        <button>  
-        <h1>Admin</h1>
-        </button>
-      
-    </div>
-    <div  onClick={() => handleLogin('employee')}>
-       
-        
-          
-       <h1>Emloyeee</h1>
-     
-     
-    </div>
-          </td>
-
-        </tr>
         <tr>
           <td>
             <input
@@ -96,19 +76,34 @@ export default function Login() {
               required
               placeholder='Password'
             />
-            <div onClick={handleTogglePassword}>
-              {showPassword ? '👁️‍🗨️' : '👁️'}&nbsp;&nbsp;&nbsp;
-              
+            <div  onClick={handleTogglePassword}>
+              {showPassword ? '👁️‍🗨️' : '👁️'}
+
               <a href='./forgot-password'>ForgotPassword</a>
-            
             </div>
           </td>
         </tr>
-     
-          
-        
       </table>
-      
+      <div  onClick={() => handleLogin('employee')}>
+
+        
+        <div >
+          <div >
+          <h1><button>Emloyeee</button></h1>
+          </div>
+        </div>
+      </div>
+      <div  onClick={() => handleLogin('admin')}>
+        <div ></div>
+        <div >
+          <div >
+          <h1><button>Admin</button></h1>
+
+            
+          </div>
+        </div>
+      </div>
     </div>
+    </center>
   );
 }
